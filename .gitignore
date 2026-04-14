@@ -1,0 +1,5 @@
+runs/
+tmp/
+zcf/
+__pycache__/
+*.pyc
