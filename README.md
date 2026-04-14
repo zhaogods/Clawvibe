@@ -1,9 +1,15 @@
-# Clawvibe
+# Clawvibe: OpenClaw Repo Troubleshooter
 
-**让新手也看懂报错：我用 OpenClaw 做了个会读仓库、会复现、会给补丁的 vibe coding 助手**
+**让新手也看懂报错：一个基于 OpenClaw 的真实仓库排障助手**
+
+> Analyze real repository errors with real command execution and structured troubleshooting output.
 
 Clawvibe 是一个基于 OpenClaw 工作流思想构建的真实排障项目。  
 输入仓库路径、错误日志和触发步骤后，系统会在**不修改源仓库**的前提下，复制仓库快照、执行真实命令、捕获真实日志，并输出结构化排障结果。
+
+## 一句话描述
+
+Clawvibe 把“看见报错”到“知道怎么修”之间的过程，收口成一条可重复执行、可回放、可结构化输出的真实排障流程。
 
 ## 项目特点
 
@@ -147,4 +153,8 @@ sh skills/openclaw-repo-troubleshooter-en/scripts/run-skill.sh --repo <repo> --e
 - 自动创建 PR
 - 图形化前端
 - 远程仓库大规模并发分析
+
+## License
+
+This project is released under the MIT License. See [LICENSE](LICENSE).
 
