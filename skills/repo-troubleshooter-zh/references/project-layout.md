@@ -11,6 +11,12 @@
 - `app/reporter.py`
 - `app/models.py`
 
+在 skill 独立安装场景中，以上运行时代码会随 skill 一起打包到：
+
+- `repo-troubleshooter-zh/app/`
+
+这保证了 skill 安装到 `custom-skills/` 后，`scripts/analyze_repo.py` 仍然可以直接导入并运行。
+
 ## 安全模型
 
 - 对本地仓库，系统先复制到快照副本再执行

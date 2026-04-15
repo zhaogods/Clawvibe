@@ -163,6 +163,7 @@ runs/
 - 回放用户提供的失败命令
 - 把真实报错整理成结构化诊断结果
 - 不直接改动源仓库，只在快照副本里执行
+- 支持作为独立 custom-skill 安装，skill 包内自带运行所需的 `app/` runtime
 
 入口：
 
@@ -187,6 +188,7 @@ runs/
 - 最终都会调用 `app.pipeline.run_analysis`
 - 默认把运行产物写入仓库根目录下的 `runs/`
 - 标准输出是完整 JSON 结果
+- skill 包内已内置 `app/` 运行时目录，单独安装到 `custom-skills/` 后也可直接运行
 
 ## 适用边界
 

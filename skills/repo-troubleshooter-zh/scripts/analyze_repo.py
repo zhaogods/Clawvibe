@@ -5,7 +5,24 @@ import json
 import sys
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
+SCRIPT_PATH = Path(__file__).resolve()
+
+
+def find_runtime_root() -> Path:
+    candidates = [
+        SCRIPT_PATH.parents[1],  # skills/repo-troubleshooter-zh
+        SCRIPT_PATH.parents[3],  # repository root when running inside this repo
+    ]
+    for candidate in candidates:
+        if (candidate / "app" / "__init__.py").exists():
+            return candidate
+    raise RuntimeError(
+        "Cannot locate runtime package 'app'. "
+        "Expected either a bundled app/ directory in the skill root or a repository root containing app/."
+    )
+
+
+REPO_ROOT = find_runtime_root()
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
