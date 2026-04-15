@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <style>
+      .title { font: 700 28px 'Microsoft YaHei', 'Noto Sans SC', sans-serif; fill: #222; }
+      .subtitle { font: 14px 'Microsoft YaHei', 'Noto Sans SC', sans-serif; fill: #666; }
+      .group-title { font: 700 18px 'Microsoft YaHei', 'Noto Sans SC', sans-serif; fill: #222; }
+      .box-title { font: 700 16px 'Microsoft YaHei', 'Noto Sans SC', sans-serif; fill: #222; }
+      .text { font: 14px 'Microsoft YaHei', 'Noto Sans SC', sans-serif; fill: #222; }
+      .small { font: 13px 'Microsoft YaHei', 'Noto Sans SC', sans-serif; fill: #333; }
+      .arrow { stroke: #4a4a4a; stroke-width: 2.5; fill: none; marker-end: url(#arrowhead2); }
+    </style>
+    <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4a4a4a"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#ffffff"/>
+
+  <text x="800" y="42" text-anchor="middle" class="title">Clawvibe 真实案例流程图：zcf 仓库排障</text>
+  <text x="800" y="70" text-anchor="middle" class="subtitle">从用户输入，到真实执行，到修复建议与验证步骤</text>
+
+  <rect x="60" y="150" rx="18" ry="18" width="250" height="210" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="185" y="185" text-anchor="middle" class="group-title">用户输入</text>
+  <rect x="95" y="205" rx="14" ry="14" width="180" height="58" fill="#ffffff" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="185" y="228" text-anchor="middle" class="box-title">仓库</text>
+  <text x="185" y="250" text-anchor="middle" class="small">F:\02_code\clawvide\zcf</text>
+  <rect x="95" y="278" rx="14" ry="14" width="180" height="58" fill="#ffffff" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="185" y="301" text-anchor="middle" class="box-title">触发命令</text>
+  <text x="185" y="323" text-anchor="middle" class="text">npm run dev</text>
+
+  <rect x="400" y="135" rx="18" ry="18" width="330" height="260" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+  <text x="565" y="170" text-anchor="middle" class="group-title">仓库扫描与前置检查</text>
+  <rect x="445" y="190" rx="14" ry="14" width="240" height="64" fill="#ffffff" stroke="#82b366" stroke-width="2"/>
+  <text x="565" y="214" text-anchor="middle" class="box-title">识别结果</text>
+  <text x="565" y="237" text-anchor="middle" class="text">技术栈：node / 包管理器：pnpm</text>
+  <rect x="445" y="270" rx="14" ry="14" width="240" height="84" fill="#ffffff" stroke="#82b366" stroke-width="2"/>
+  <text x="565" y="294" text-anchor="middle" class="box-title">关联关键文件</text>
+  <text x="565" y="317" text-anchor="middle" class="small">package.json / src\cli.ts / bin\zcf.mjs</text>
+  <text x="565" y="338" text-anchor="middle" class="small">src\cli-setup.ts / src\constants.ts</text>
+  <rect x="445" y="368" rx="14" ry="14" width="240" height="76" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+  <text x="565" y="392" text-anchor="middle" class="box-title">前置检查</text>
+  <text x="565" y="415" text-anchor="middle" class="text">未检测到 node_modules</text>
+  <text x="565" y="437" text-anchor="middle" class="text">优先建议执行 pnpm install</text>
+
+  <rect x="820" y="135" rx="18" ry="18" width="310" height="260" fill="#f8cecc" stroke="#b85450" stroke-width="2"/>
+  <text x="975" y="170" text-anchor="middle" class="group-title">真实执行</text>
+  <rect x="860" y="190" rx="14" ry="14" width="230" height="60" fill="#ffffff" stroke="#b85450" stroke-width="2"/>
+  <text x="975" y="214" text-anchor="middle" class="box-title">执行位置</text>
+  <text x="975" y="237" text-anchor="middle" class="small">runs/task_20260414_103457/repo</text>
+  <rect x="860" y="265" rx="14" ry="14" width="230" height="70" fill="#ffffff" stroke="#b85450" stroke-width="2"/>
+  <text x="975" y="289" text-anchor="middle" class="box-title">stdout</text>
+  <text x="975" y="312" text-anchor="middle" class="small">&gt; zcf@3.6.4 dev</text>
+  <text x="975" y="332" text-anchor="middle" class="small">&gt; tsx ./src/cli.ts</text>
+  <rect x="860" y="350" rx="14" ry="14" width="230" height="70" fill="#ffffff" stroke="#b85450" stroke-width="2"/>
+  <text x="975" y="374" text-anchor="middle" class="box-title">stderr / 退出码</text>
+  <text x="975" y="397" text-anchor="middle" class="small">'tsx' is not recognized...</text>
+  <text x="975" y="417" text-anchor="middle" class="small">exit=1</text>
+
+  <rect x="1220" y="135" rx="18" ry="18" width="300" height="260" fill="#e1d5e7" stroke="#9673a6" stroke-width="2"/>
+  <text x="1370" y="170" text-anchor="middle" class="group-title">诊断结论</text>
+  <rect x="1260" y="190" rx="14" ry="14" width="220" height="58" fill="#ffffff" stroke="#9673a6" stroke-width="2"/>
+  <text x="1370" y="214" text-anchor="middle" class="box-title">错误类型</text>
+  <text x="1370" y="237" text-anchor="middle" class="text">tool_missing_error</text>
+  <rect x="1260" y="263" rx="14" ry="14" width="220" height="82" fill="#ffffff" stroke="#9673a6" stroke-width="2"/>
+  <text x="1370" y="287" text-anchor="middle" class="box-title">高概率根因</text>
+  <text x="1370" y="310" text-anchor="middle" class="text">当前脚本依赖的命令行工具未安装</text>
+  <text x="1370" y="332" text-anchor="middle" class="text">缺少可执行工具 tsx</text>
+  <rect x="1260" y="360" rx="14" ry="14" width="220" height="76" fill="#ffffff" stroke="#9673a6" stroke-width="2"/>
+  <text x="1370" y="384" text-anchor="middle" class="box-title">优先修复动作</text>
+  <text x="1370" y="407" text-anchor="middle" class="text">1. pnpm install</text>
+  <text x="1370" y="429" text-anchor="middle" class="text">2. 再执行 pnpm dev / pnpm build</text>
+
+  <rect x="480" y="500" rx="18" ry="18" width="640" height="180" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+  <text x="800" y="535" text-anchor="middle" class="group-title">结构化输出</text>
+  <rect x="550" y="565" rx="14" ry="14" width="230" height="76" fill="#ffffff" stroke="#d79b00" stroke-width="2"/>
+  <text x="665" y="589" text-anchor="middle" class="box-title">result.json</text>
+  <text x="665" y="612" text-anchor="middle" class="text">execution_plan / root_causes /</text>
+  <text x="665" y="634" text-anchor="middle" class="text">verify_steps</text>
+  <rect x="830" y="565" rx="14" ry="14" width="230" height="76" fill="#ffffff" stroke="#d79b00" stroke-width="2"/>
+  <text x="945" y="589" text-anchor="middle" class="box-title">final_report.md</text>
+  <text x="945" y="612" text-anchor="middle" class="text">真实执行结果 / 诊断依据 /</text>
+  <text x="945" y="634" text-anchor="middle" class="text">修复建议</text>
+
+  <rect x="520" y="730" rx="16" ry="16" width="560" height="90" fill="#f5f5f5" stroke="#666666" stroke-width="2"/>
+  <text x="800" y="764" text-anchor="middle" class="box-title">展示重点</text>
+  <text x="800" y="791" text-anchor="middle" class="text">不是直接“解释报错”，而是先扫描仓库、再真实执行、</text>
+  <text x="800" y="815" text-anchor="middle" class="text">最后给出可验证的修复路径</text>
+
+  <path d="M310 255 H400" class="arrow"/>
+  <path d="M730 265 H820" class="arrow"/>
+  <path d="M1130 265 H1220" class="arrow"/>
+  <path d="M1370 395 V470 H800 V500" class="arrow"/>
+</svg>

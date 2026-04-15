@@ -1,0 +1,92 @@
+<mxfile host="app.diagrams.net" modified="2026-04-15T14:28:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="zcf-case-flow" name="ZCF Case Flow">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Clawvibe 真实案例流程图：zcf 仓库排障" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="20" width="740" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="从用户输入，到真实执行，到修复建议与验证步骤" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=13;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="470" y="55" width="660" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="input" value="用户输入" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="60" y="150" width="250" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="input_repo" value="仓库&#xa;F:\02_code\clawvide\zcf" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="95" y="195" width="180" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="input_step" value="触发命令&#xa;npm run dev" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="95" y="265" width="180" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="scan" value="仓库扫描与前置检查" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="400" y="135" width="330" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="scan_stack" value="识别技术栈：node&#xa;识别包管理器：pnpm" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="445" y="180" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="scan_files" value="关联关键文件&#xa;package.json / src\cli.ts / bin\zcf.mjs&#xa;src\cli-setup.ts / src\constants.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="445" y="255" width="240" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="scan_preflight" value="前置检查&#xa;未检测到 node_modules&#xa;优先建议执行 pnpm install" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="445" y="345" width="240" height="75" as="geometry" />
+        </mxCell>
+
+        <mxCell id="exec" value="真实执行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="820" y="135" width="310" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="exec_where" value="在快照副本中执行&#xa;runs/task_20260414_103457/repo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="860" y="180" width="230" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="exec_stdout" value="stdout&#xa;&gt; zcf@3.6.4 dev&#xa;&gt; tsx ./src/cli.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="860" y="255" width="230" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="exec_stderr" value="stderr / 退出码&#xa;'tsx' is not recognized...&#xa;exit=1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="860" y="335" width="230" height="65" as="geometry" />
+        </mxCell>
+
+        <mxCell id="judge" value="诊断结论" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="135" width="300" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="judge_type" value="错误类型&#xa;tool_missing_error" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="180" width="220" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="judge_root" value="高概率根因&#xa;当前脚本依赖的命令行工具未安装&#xa;缺少可执行工具 tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="250" width="220" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="judge_fix" value="优先修复动作&#xa;1. pnpm install&#xa;2. 再次运行 pnpm dev / pnpm build" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="340" width="220" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="output" value="结构化输出" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="480" y="500" width="640" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="out_json" value="result.json&#xa;execution_plan / root_causes / verify_steps" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="550" y="560" width="230" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="out_report" value="final_report.md&#xa;真实执行结果 / 诊断依据 / 修复建议" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="830" y="560" width="230" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="value" value="展示重点：不是直接“解释报错”，而是先扫描仓库、再真实执行、最后给出可验证的修复路径" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="730" width="560" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="input" target="scan">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="scan" target="exec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="exec" target="judge">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="judge" target="output">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -46,6 +46,8 @@
 6. 执行计划并采集日志
 7. 生成诊断结论和报告
 
+![Clawvibe 真实仓库排障框架图](diagrams/clawvibe-framework.svg)
+
 ## 目录结构
 
 ```text
@@ -146,6 +148,8 @@ runs/
 - `diagnosis.json`：诊断结果
 - `result.json`：统一结构化输出
 - `final_report.md`：面向人工阅读的报告
+
+![zcf 仓库真实案例流程图](diagrams/zcf-case-flow.svg)
 
 ## Skill 说明
 

@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <style>
+      .title { font: 700 28px 'Microsoft YaHei', 'Noto Sans SC', sans-serif; fill: #222; }
+      .subtitle { font: 14px 'Microsoft YaHei', 'Noto Sans SC', sans-serif; fill: #666; }
+      .group-title { font: 700 18px 'Microsoft YaHei', 'Noto Sans SC', sans-serif; fill: #222; }
+      .box-title { font: 700 16px 'Microsoft YaHei', 'Noto Sans SC', sans-serif; fill: #222; }
+      .text { font: 14px 'Microsoft YaHei', 'Noto Sans SC', sans-serif; fill: #222; }
+      .small { font: 13px 'Microsoft YaHei', 'Noto Sans SC', sans-serif; fill: #333; }
+      .arrow { stroke: #4a4a4a; stroke-width: 2.5; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4a4a4a"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#ffffff"/>
+
+  <text x="800" y="42" text-anchor="middle" class="title">Clawvibe 真实仓库排障框架图</text>
+  <text x="800" y="70" text-anchor="middle" class="subtitle">围绕真实仓库、真实日志、真实命令执行的 AI 排障工作流</text>
+
+  <rect x="50" y="120" rx="18" ry="18" width="280" height="320" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="190" y="155" text-anchor="middle" class="group-title">输入层</text>
+
+  <rect x="90" y="180" rx="14" ry="14" width="200" height="62" fill="#ffffff" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="190" y="205" text-anchor="middle" class="box-title">仓库输入</text>
+  <text x="190" y="228" text-anchor="middle" class="text">本地路径 / Git URL</text>
+
+  <rect x="90" y="260" rx="14" ry="14" width="200" height="62" fill="#ffffff" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="190" y="285" text-anchor="middle" class="box-title">原始错误日志</text>
+  <text x="190" y="308" text-anchor="middle" class="text">error text / error file</text>
+
+  <rect x="90" y="340" rx="14" ry="14" width="200" height="62" fill="#ffffff" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="190" y="365" text-anchor="middle" class="box-title">触发步骤</text>
+  <text x="190" y="388" text-anchor="middle" class="text">steps / steps file</text>
+
+  <rect x="390" y="120" rx="18" ry="18" width="760" height="500" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+  <text x="770" y="155" text-anchor="middle" class="group-title">Clawvibe 核心排障流水线</text>
+
+  <rect x="450" y="180" rx="14" ry="14" width="250" height="72" fill="#ffffff" stroke="#82b366" stroke-width="2"/>
+  <text x="575" y="208" text-anchor="middle" class="box-title">1. intake.py</text>
+  <text x="575" y="233" text-anchor="middle" class="text">输入读取与任务建模</text>
+
+  <rect x="450" y="290" rx="14" ry="14" width="250" height="86" fill="#ffffff" stroke="#82b366" stroke-width="2"/>
+  <text x="575" y="318" text-anchor="middle" class="box-title">2. repo_reader.py</text>
+  <text x="575" y="343" text-anchor="middle" class="text">快照复制 / 仓库扫描 /</text>
+  <text x="575" y="366" text-anchor="middle" class="text">入口识别</text>
+
+  <rect x="450" y="410" rx="14" ry="14" width="250" height="108" fill="#ffffff" stroke="#82b366" stroke-width="2"/>
+  <text x="575" y="438" text-anchor="middle" class="box-title">3. reproducer.py</text>
+  <text x="575" y="463" text-anchor="middle" class="text">执行计划生成</text>
+  <text x="575" y="486" text-anchor="middle" class="text">真实命令执行 +</text>
+  <text x="575" y="509" text-anchor="middle" class="text">stdout / stderr / exit code</text>
+
+  <rect x="830" y="290" rx="14" ry="14" width="250" height="86" fill="#ffffff" stroke="#82b366" stroke-width="2"/>
+  <text x="955" y="318" text-anchor="middle" class="box-title">4. analyzer.py</text>
+  <text x="955" y="343" text-anchor="middle" class="text">错误分类 / 根因分析 /</text>
+  <text x="955" y="366" text-anchor="middle" class="text">修复建议</text>
+
+  <rect x="830" y="410" rx="14" ry="14" width="250" height="108" fill="#ffffff" stroke="#82b366" stroke-width="2"/>
+  <text x="955" y="438" text-anchor="middle" class="box-title">5. reporter.py</text>
+  <text x="955" y="463" text-anchor="middle" class="text">结构化结果输出</text>
+  <text x="955" y="486" text-anchor="middle" class="text">Markdown + JSON</text>
+
+  <rect x="720" y="188" rx="12" ry="12" width="170" height="52" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+  <text x="805" y="210" text-anchor="middle" class="box-title">统一编排入口</text>
+  <text x="805" y="232" text-anchor="middle" class="small">app.pipeline.run_analysis(...)</text>
+
+  <rect x="740" y="530" rx="12" ry="12" width="180" height="62" fill="#f8cecc" stroke="#b85450" stroke-width="2"/>
+  <text x="830" y="554" text-anchor="middle" class="box-title">运行目录</text>
+  <text x="830" y="578" text-anchor="middle" class="small">runs/&lt;task_id&gt;/repo</text>
+
+  <rect x="1210" y="120" rx="18" ry="18" width="280" height="220" fill="#e1d5e7" stroke="#9673a6" stroke-width="2"/>
+  <text x="1350" y="155" text-anchor="middle" class="group-title">技能封装层</text>
+
+  <rect x="1260" y="182" rx="14" ry="14" width="180" height="54" fill="#ffffff" stroke="#9673a6" stroke-width="2"/>
+  <text x="1350" y="214" text-anchor="middle" class="box-title">repo-troubleshooter-zh</text>
+
+  <rect x="1245" y="252" rx="14" ry="14" width="210" height="74" fill="#ffffff" stroke="#9673a6" stroke-width="2"/>
+  <text x="1350" y="278" text-anchor="middle" class="text">SKILL.md / openai.yaml</text>
+  <text x="1350" y="302" text-anchor="middle" class="text">run-skill.ps1 / .cmd / .sh</text>
+
+  <rect x="390" y="680" rx="18" ry="18" width="760" height="180" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+  <text x="770" y="715" text-anchor="middle" class="group-title">输出层</text>
+
+  <rect x="450" y="745" rx="14" ry="14" width="180" height="62" fill="#ffffff" stroke="#d79b00" stroke-width="2"/>
+  <text x="540" y="771" text-anchor="middle" class="box-title">result.json</text>
+  <text x="540" y="794" text-anchor="middle" class="text">统一结构化结果</text>
+
+  <rect x="660" y="745" rx="14" ry="14" width="180" height="62" fill="#ffffff" stroke="#d79b00" stroke-width="2"/>
+  <text x="750" y="771" text-anchor="middle" class="box-title">diagnosis.json</text>
+  <text x="750" y="794" text-anchor="middle" class="text">诊断依据与根因</text>
+
+  <rect x="870" y="745" rx="14" ry="14" width="180" height="62" fill="#ffffff" stroke="#d79b00" stroke-width="2"/>
+  <text x="960" y="771" text-anchor="middle" class="box-title">executions.json</text>
+  <text x="960" y="794" text-anchor="middle" class="text">真实执行记录</text>
+
+  <rect x="660" y="815" rx="14" ry="14" width="180" height="62" fill="#ffffff" stroke="#d79b00" stroke-width="2"/>
+  <text x="750" y="841" text-anchor="middle" class="box-title">final_report.md</text>
+  <text x="750" y="864" text-anchor="middle" class="text">面向人工阅读的排障报告</text>
+
+  <rect x="1210" y="430" rx="16" ry="16" width="280" height="110" fill="#f5f5f5" stroke="#666666" stroke-width="2"/>
+  <text x="1350" y="463" text-anchor="middle" class="box-title">核心价值</text>
+  <text x="1350" y="490" text-anchor="middle" class="text">把“看不懂报错”变成</text>
+  <text x="1350" y="514" text-anchor="middle" class="text">“知道下一步该怎么排查和验证”</text>
+
+  <path d="M290 212 H430" class="arrow"/>
+  <path d="M290 292 H430" class="arrow"/>
+  <path d="M290 372 H430" class="arrow"/>
+  <path d="M575 252 V290" class="arrow"/>
+  <path d="M575 376 V410" class="arrow"/>
+  <path d="M700 464 H830" class="arrow"/>
+  <path d="M955 376 V410" class="arrow"/>
+  <path d="M1080 464 H1125 V776 H1050" class="arrow"/>
+  <path d="M1080 464 H1125 V776 H840" class="arrow"/>
+  <path d="M1080 464 H1125 V776 H630" class="arrow"/>
+  <path d="M955 518 V590 H750 V745" class="arrow"/>
+  <path d="M1260 214 H920 V214 H890" class="arrow"/>
+  <path d="M575 332 H725 V561 H740" class="arrow"/>
+</svg>
