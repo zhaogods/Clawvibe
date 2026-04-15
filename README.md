@@ -1,6 +1,6 @@
 # Clawvibe
 
-基于 OpenClaw 思路实现的仓库报错排障工具。它接收真实仓库、真实错误日志和真实复现步骤，在不直接修改源仓库的前提下，复制或克隆一个运行快照，执行命令，并输出结构化诊断结果。
+一个面向真实仓库场景的报错排障工具。它接收真实仓库、真实错误日志和真实复现步骤，在不直接修改源仓库的前提下，复制或克隆一个运行快照，执行命令，并输出结构化诊断结果。
 
 ## 项目定位
 
@@ -9,7 +9,7 @@
 - 接手陌生仓库时快速建立上下文
 - 把用户提供的失败步骤转成可回放的排障过程
 - 同时产出适合人读的 Markdown 报告和适合程序消费的 JSON 结果
-- 作为 Codex / OpenClaw 的 skill 封装，复用到其他工作流里
+- 作为 Codex skill 封装，复用到其他工作流里
 
 ## 当前能力
 
@@ -60,8 +60,7 @@ app/
   reporter.py      # JSON / Markdown 产物输出
 
 skills/
-  openclaw-repo-troubleshooter-en/
-  openclaw-repo-troubleshooter-zh/
+  repo-troubleshooter-zh/
 
 runs/              # 每次分析的输出目录
 tmp/               # 临时目录
@@ -150,11 +149,11 @@ runs/
 
 ## Skill 说明
 
-仓库内置两个 skill 包，它们共享同一条分析流水线，区别主要在语言和包装入口：
+仓库内置一个 skill 包，基于同一条分析流水线对仓库报错进行排障：
 
-### `openclaw-repo-troubleshooter-zh`
+### `repo-troubleshooter-zh`
 
-中文 skill，适合中文场景下的仓库报错排障。典型用途：
+中文 skill，适合中文场景下的仓库报错排障。技能名和目录名均为 `repo-troubleshooter-zh`。典型用途：
 
 - 分析一个本地或远程仓库为什么启动失败
 - 回放用户提供的失败命令
@@ -163,39 +162,20 @@ runs/
 
 入口：
 
-- `skills/openclaw-repo-troubleshooter-zh/scripts/analyze_repo.py`
-- `skills/openclaw-repo-troubleshooter-zh/scripts/run-skill.ps1`
-- `skills/openclaw-repo-troubleshooter-zh/scripts/run-skill.cmd`
-- `skills/openclaw-repo-troubleshooter-zh/scripts/run-skill.sh`
+- `skills/repo-troubleshooter-zh/scripts/analyze_repo.py`
+- `skills/repo-troubleshooter-zh/scripts/run-skill.ps1`
+- `skills/repo-troubleshooter-zh/scripts/run-skill.cmd`
+- `skills/repo-troubleshooter-zh/scripts/run-skill.sh`
 
 示例：
 
 ```powershell
-.\skills\openclaw-repo-troubleshooter-zh\scripts\run-skill.ps1 `
+.\skills\repo-troubleshooter-zh\scripts\run-skill.ps1 `
   --repo F:\path\to\repo `
   --error-file .\error.txt `
   --steps-file .\steps.txt
 ```
 
-### `openclaw-repo-troubleshooter-en`
-
-英文 skill，适合英文工作流、英文报告场景，核心逻辑与中文版一致。
-
-入口：
-
-- `skills/openclaw-repo-troubleshooter-en/scripts/analyze_repo.py`
-- `skills/openclaw-repo-troubleshooter-en/scripts/run-skill.ps1`
-- `skills/openclaw-repo-troubleshooter-en/scripts/run-skill.cmd`
-- `skills/openclaw-repo-troubleshooter-en/scripts/run-skill.sh`
-
-示例：
-
-```powershell
-.\skills\openclaw-repo-troubleshooter-en\scripts\run-skill.ps1 `
-  --repo F:\path\to\repo `
-  --error-file .\error.txt `
-  --steps-file .\steps.txt
-```
 
 两者共同特点：
 

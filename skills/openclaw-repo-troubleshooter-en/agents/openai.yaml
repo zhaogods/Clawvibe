@@ -1,8 +1,0 @@
-interface:
-  display_name: "OpenClaw Repo Troubleshooter"
-  short_description: "Analyze real repo errors into structured reports."
-  default_prompt: "Use $openclaw-repo-troubleshooter-en to analyze a real repository error and produce structured troubleshooting output."
-
-policy:
-  allow_implicit_invocation: true
-

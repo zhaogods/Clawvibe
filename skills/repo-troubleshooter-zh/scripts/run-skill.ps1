@@ -18,4 +18,3 @@ if (Get-Command py -ErrorAction SilentlyContinue) {
 
 Write-Error "Python was not found in PATH."
 exit 1
-

@@ -16,4 +16,3 @@ if %ERRORLEVEL%==0 (
 
 echo Python was not found in PATH.
 exit /b 1
-

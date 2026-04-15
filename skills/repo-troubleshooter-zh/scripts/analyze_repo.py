@@ -20,7 +20,7 @@ from app.pipeline import run_analysis
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="使用 OpenClaw 仓库排障技能分析真实仓库和真实错误日志。"
+        description="使用 repo-troubleshooter-zh 技能分析真实仓库和真实错误日志。"
     )
     parser.add_argument("--repo", required=True, help="本地仓库路径或远程 Git URL")
     parser.add_argument("--branch", help="Git 分支")
@@ -51,4 +51,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

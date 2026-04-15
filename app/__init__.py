@@ -1,2 +1,1 @@
-"""OpenClaw repo troubleshooting assistant."""
-
+"""Clawvibe repo troubleshooting assistant."""

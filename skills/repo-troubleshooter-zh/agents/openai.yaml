@@ -1,0 +1,7 @@
+interface:
+  display_name: "仓库排障助手（中文）"
+  short_description: "基于真实仓库、真实日志和真实命令执行输出结构化排障结论。"
+  default_prompt: "Use $repo-troubleshooter-zh to analyze a real repository error with real command execution and produce structured troubleshooting output in Chinese."
+
+policy:
+  allow_implicit_invocation: true
